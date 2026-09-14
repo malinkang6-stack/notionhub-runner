@@ -1,9 +1,14 @@
 # NotionHub generated workflow v31
 name: 修复数据
+run-name: ${{ github.workflow }}
 
 on:
   workflow_dispatch:
     inputs:
+      notionhub_run_id:
+        description: NotionHub 内部运行标识
+        required: false
+        default: ''
       service:
         description: 同步服务
         required: true
@@ -29,7 +34,7 @@ jobs:
     runs-on: ubuntu-latest
     env:
       NOTIONHUB_API_BASE: https://i.notionhub.app/v1
-      NOTIONHUB_CONFIG_VERSION: '46'
+      NOTIONHUB_CONFIG_VERSION: '51'
       WEREAD_CONFIG: ${{ secrets.WEREAD_CONFIG }}
       PODCAST_CONFIG: ${{ secrets.PODCAST_CONFIG }}
       DOUBAN_CONFIG: ${{ secrets.DOUBAN_CONFIG }}
@@ -44,6 +49,7 @@ jobs:
       FOREST_CONFIG: ${{ secrets.FOREST_CONFIG }}
       TOGGL_CONFIG: ${{ secrets.TOGGL_CONFIG }}
       APPLEMUSIC_CONFIG: ${{ secrets.APPLEMUSIC_CONFIG }}
+      APPLEPODCAST_CONFIG: ${{ secrets.APPLEPODCAST_CONFIG }}
       SPOTIFY_CONFIG: ${{ secrets.SPOTIFY_CONFIG }}
       TRAKT_CONFIG: ${{ secrets.TRAKT_CONFIG }}
       XIAOHONGSHU_CONFIG: ${{ secrets.XIAOHONGSHU_CONFIG }}
@@ -53,6 +59,7 @@ jobs:
       GHSTAR_CONFIG: ${{ secrets.GHSTAR_CONFIG }}
       DAILY_CONFIG: ${{ secrets.DAILY_CONFIG }}
       TELEGRAM_CONFIG: ${{ secrets.TELEGRAM_CONFIG }}
+      X_CONFIG: ${{ secrets.X_CONFIG }}
       WEIBO_CONFIG: ${{ secrets.WEIBO_CONFIG }}
       JIKE_CONFIG: ${{ secrets.JIKE_CONFIG }}
     steps:
